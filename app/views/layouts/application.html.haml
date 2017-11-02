@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title
+      Easyrenter - #{yield :title}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render 'layouts/navbar'
+    .container-fluid
+      - if notice
+        %p.alert.alert-success= notice
+      - if alert
+        %p.alert.alert-danger= alert
+      - if Rails.env.development?
+        %p.alert-info= 'This environment is running in development'
+      - if Rails.env.test?
+        %p.alert-info= 'This environment is running in test'
+      = yield

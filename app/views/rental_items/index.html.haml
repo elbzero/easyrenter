@@ -1,0 +1,24 @@
+= content_for :title,"Rental Items"
+%h1 Listing rental_items
+
+%table
+  %thead
+    %tr
+      %th Description
+      %th Price
+      %th
+      %th
+      %th
+
+  %tbody
+    - @rental_items.each do |rental_item|
+      %tr
+        %td= rental_item.description
+        %td= rental_item.price
+        %td= link_to 'Show', rental_item
+        %td= link_to 'Edit', edit_rental_item_path(rental_item)
+        %td= link_to 'Destroy', rental_item, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Rental item', new_rental_item_path

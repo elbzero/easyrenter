@@ -1,0 +1,11 @@
+
+%p
+  %b Description:
+  = @rental_item.description
+%p
+  %b Price:
+  = @rental_item.price
+
+= link_to 'Edit', edit_rental_item_path(@rental_item)
+\|
+= link_to 'Back', rental_items_path
