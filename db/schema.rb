@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20171105030803) do
     t.datetime "updated_at",                  null: false
   end
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "rental_items", force: :cascade do |t|
     t.string   "description"
     t.decimal  "price"
