@@ -1,10 +1,16 @@
+- @rental_item_images.each do |p|
+  %p
+    =image_tag p.item_image.thumb.url
+    =link_to "Edit Image", edit_rental_item_image_path(p)
 
 %p
   %b Description:
-  = @rental_item.description
+  %i= "#{@rental_item.description} #{@rental_item.price}"
+
 %p
   %b Price:
   = @rental_item.price
+
 
 = link_to 'Edit', edit_rental_item_path(@rental_item)
 \|

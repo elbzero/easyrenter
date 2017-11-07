@@ -10,11 +10,13 @@ class RentalItemsController < ApplicationController
   # GET /rental_items/1
   # GET /rental_items/1.json
   def show
+      @rental_item_images = @rental_item.rental_item_images.all
   end
 
   # GET /rental_items/new
   def new
     @rental_item = RentalItem.new
+    @rental_item_image = @rental_item.rental_item_images.build
   end
 
   # GET /rental_items/1/edit
@@ -28,6 +30,9 @@ class RentalItemsController < ApplicationController
 
     respond_to do |format|
       if @rental_item.save
+        params[:rental_item_images]['item_image'].each do |a|
+          @rental_item_image = @rental_item.rental_item_images.create!(:item_image => a)
+        end
         format.html { redirect_to @rental_item, notice: 'Rental item was successfully created.' }
         format.json { render :show, status: :created, location: @rental_item }
       else
@@ -69,6 +74,6 @@ class RentalItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rental_item_params
-      params.require(:rental_item).permit(:description, :price)
+      params.require(:rental_item).permit(:description, :price, rental_item_images_attributes: [:id, :rental_item_id, :item_image])
     end
 end

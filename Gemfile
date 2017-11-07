@@ -33,6 +33,14 @@ gem "less-rails"
 # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'figaro'
+# Make sure you brew install imagemagick on your mac for this to work.
+# I wonder what will happen on a server lol
+gem 'mini_magick'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

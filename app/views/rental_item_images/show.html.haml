@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Rental item:
+  = @rental_item_image.rental_item_id
+%p
+  %b Item image:
+  = @rental_item_image.item_image
+%p
+  %b Contains items not included:
+  = @rental_item_image.contains_items_not_included
+
+= link_to 'Edit', edit_rental_item_image_path(@rental_item_image)
+\|
+= link_to 'Back', rental_item_images_path

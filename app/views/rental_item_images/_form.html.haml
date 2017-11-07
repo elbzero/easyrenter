@@ -1,0 +1,19 @@
+= form_for @rental_item_image do |f|
+  - if @rental_item_image.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@rental_item_image.errors.count, "error")} prohibited this rental_item_image from being saved:"
+      %ul
+        - @rental_item_image.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :rental_item_id
+    = f.number_field :rental_item_id
+  .field
+    = f.label :item_image
+    = f.file_field :item_image
+  .field
+    = f.label :contains_items_not_included
+    = f.check_box :contains_items_not_included
+  .actions
+    = f.submit 'Save'
