@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20171105030803) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "rental_item_images", force: :cascade do |t|
+    t.integer  "rental_item_id"
+    t.string   "item_image"
+    t.boolean  "contains_items_not_included"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "rental_items", force: :cascade do |t|
     t.string   "description"
     t.decimal  "price"
