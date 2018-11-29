@@ -5,7 +5,12 @@
       %ul
         - @rental_item.errors.full_messages.each do |message|
           %li= message
-
+  = f.fields_for :rental_item_images do |p|
+    .field
+      = p.label :item_image
+        - if p.object.item_image?
+        = image_tag p.object.item_image.thumb.url
+      = p.file_field :item_image, :multiple => true, name: "rental_item_images[item_image][]"
   .field
     = f.label :description
     = f.text_field :description

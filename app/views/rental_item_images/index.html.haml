@@ -1,0 +1,25 @@
+%h1 Listing rental_item_images
+
+%table
+  %thead
+    %tr
+      %th Rental item
+      %th Item image
+      %th Contains items not included
+      %th
+      %th
+      %th
+
+  %tbody
+    - @rental_item_images.each do |rental_item_image|
+      %tr
+        %td= rental_item_image.rental_item_id
+        %td= rental_item_image.item_image
+        %td= rental_item_image.contains_items_not_included
+        %td= link_to 'Show', rental_item_image
+        %td= link_to 'Edit', edit_rental_item_image_path(rental_item_image)
+        %td= link_to 'Destroy', rental_item_image, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Rental item image', new_rental_item_image_path
