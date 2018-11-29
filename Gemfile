@@ -86,4 +86,3 @@ group :test do
   gem 'thin'
   gem 'timecop'
 end
-
