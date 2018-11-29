@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-
+ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.8'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -40,8 +40,6 @@ gem 'figaro'
 # I wonder what will happen on a server lol
 gem 'mini_magick'
 
-
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,13 +53,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
   gem 'letter_opener'
-
+  gem 'factory_girl_rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'httplog'
 end
 
 group :development do
@@ -69,5 +68,22 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'launchy'
+  gem 'rack_session_access'
+  gem 'quiet_assets'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'thin'
+  gem 'timecop'
 end
 

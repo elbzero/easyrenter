@@ -31,7 +31,7 @@ class RentalItemsController < ApplicationController
     respond_to do |format|
       if @rental_item.save
         params[:rental_item_images]['item_image'].each do |a|
-          @rental_item_image = @rental_item.rental_item_images.create!(:item_image => a)
+          @rental_item.rental_item_images.create!(:item_image => a)
         end
         format.html { redirect_to @rental_item, notice: 'Rental item was successfully created.' }
         format.json { render :show, status: :created, location: @rental_item }

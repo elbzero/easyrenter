@@ -4,8 +4,9 @@
     =link_to "Edit Image", edit_rental_item_image_path(p)
 
 %p
-  %b Description:
-  %i= "#{@rental_item.description} #{@rental_item.price}"
+  .rental-label
+    Description2:
+  %i #{@rental_item.description} #{@rental_item.price}
 
 %p
   %b Price:
@@ -14,4 +15,4 @@
 
 = link_to 'Edit', edit_rental_item_path(@rental_item)
 \|
-= link_to 'Back', rental_items_path
+#{link_to 'Back', rental_items_path}

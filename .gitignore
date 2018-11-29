@@ -1,4 +1,5 @@
 .idea/
+.duplicacy/
 log/
 tmp/
 # Ignore application configuration
